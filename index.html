@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <nav class="nav">
+
+            <div class="nav-flex">
+                <h2 class="nav-title">Street Eats</h2>
+
+                <ul class="nav-items">
+                    <li class="hide-mobile"><a href="#home">Home</a></li>
+                    <li class="hide-mobile"><a href="#menu">Menu</a></li>
+                    <li class="hide-mobile"><a href="#location">Location</a></li>
+                    <li class="hide-mobile"><a href="#about">About</a></li>
+                    <li class="hide-mobile"><a href="#contact">Contact</a></li>
+                    
+                    <li class="menu-bar" id="menuToggle" onclick="toggleSidebar()">
+                        <span class="icon-hamburger">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                        </span>
+                        <span class="icon-close">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sidebar">
+                <ul class="sidebar-links">
+                    <li><a href="#home" onclick="toggleSidebar()">Home</a></li>
+                    <li><a href="#menu" onclick="toggleSidebar()">Menu</a></li>
+                    <li><a href="#location" onclick="toggleSidebar()">Location</a></li>
+                    <li><a href="#about" onclick="toggleSidebar()">About</a></li>
+                    <li><a href="#contact" onclick="toggleSidebar()">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="overlay"></div>
+
+        <header id="home" class="header">
+            <div class="slider">
+                <img src="images/slider1.jpg" class="slide active" alt="Street Eats food truck">
+                <img src="images/slider2.jpg" class="slide" alt="Street Eats food truck serving food">
+                <img src="images/slider3.jpg" class="slide" alt="Street Eats food truck serving customers">
+            </div>
+            <div class="header-content">
+                <h1>Authentic Street Food on Wheels</h1>
+                <p>Fresh, delicious, and made with love. Find us around the city!</p>
+                <div class="header-buttons">
+                    <a href="#menu" class="button-m">View Menu</a>
+                    <a href="#location" class="button-u">Find Us</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="menu" class="favs">
+            <h2>Fan Favourites</h2>
+            <p class="favs-line">Try our most popular dishes</p>
+            <div class="favourites">
+                <div class="item fade-in">
+                    <div class="menu-card-top">
+                        <img src="images/tacos.jpg" alt="Tacos">
+                    </div>   
+                    <div class="card-content">            
+                        <h3>Signature Tacos</h3>
+                        <p>Three crispy tacos with seasoned beef, fresh veggies, and our secret sauce</p>
+                        <span class="cost">$12.99</span>
+                    </div> 
+                </div>
+
+                <div class="item fade-in">
+                    <div class="menu-card-top">
+                        <img src="images/burger.jpg" alt="Burger">
+                    </div> 
+                    <div class="card-content">                 
+                        <h3>Gourment Burgers</h3>
+                        <p>Juicy beef patty with melted cheese, caramelized onions, and special sauce</p>
+                        <span class="cost">$14.99</span>
+                    </div>
+                </div>
+
+                <div class="item fade-in">
+                    <div class="menu-card-top">
+                        <img src="images/fries.jpg" alt="Fries">
+                    </div>  
+                    <div class="card-content">                 
+                        <h3>Loaded Fries</h3>
+                        <p>Crispy fries topped with cheese, bacon bits, and sour cream</p>
+                        <span class="cost">$8.99</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="locate fade-in">
+            <h2>Find Us This Week</h2>
+            <div class="locations">
+                <div class="location one">
+                    <h3>Monday - Friday</h3>
+                    <h4>Downtown Business District</h4>
+                    <p class="address">Corner of 5th & Main St</p>
+                    <p class="time">11:00 AM - 3:00 PM</p>
+                </div>
+                <div class="location two">
+                    <h3>Saturday - Sunday</h3>
+                    <h4>Central Park</h4>
+                    <p class="address">Near the Fountain Plaza</p>
+                    <p class="time">12:00 AM - 8:00 PM</p>
+                </div>
+        </section>
+
+        <section id="about" class="story fade-in">
+            <h2>Our Story</h2>
+            <div class="summary">
+                <p>What started as a passion for authentic street food has grown into a beloved food truck 
+                serving the community. We believe in fresh ingredients, bold flavors, and treating every customer like family.</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat counter">
+                    <p class="num" data-target="5">0</p>
+                    <p class="info">Years Serving</p>  
+                </div>
+                <div class="stat counter">
+                    <p class="num" data-target="50" data-suffix="K+">0</p>
+                    <p class="info">Happy Customers</p>  
+                </div>
+                <div class="stat counter">
+                    <p class="num" data-target="25">0</p>
+                    <p class="info">Menu Items</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Stay Connected</h2>
+            <div class="connect fade-in">
+                <p>Follow us on social media for daily location updates, special offers, and new menu items!</p>
+            </div>
+            <div class="social-media fade-in">
+                <button>Instagram</button>
+                <button>X</button>
+                <button>Facebook</button>
+            </div>
+            <div class="question fade-in">
+                <p>Questions? Email us at <a href="mailto:hello@streeteats.com">hello@streeteats.com</a></p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Street Eats Food Truck. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
