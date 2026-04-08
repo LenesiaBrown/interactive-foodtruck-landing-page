@@ -4,6 +4,7 @@ const faders = document.querySelectorAll('.fade-in');
 const counters = document.querySelectorAll('.num');
 let slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
+let isPaused = false;
 
 // function toggleSidebar() {
 //     sidebar.classList.toggle('show-sidebar');
@@ -20,14 +21,31 @@ function toggleSidebar() {
     overlay.classList.toggle('show');
 }
 
-function showNextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
 
+function showNextSlide() {
+    if (isPaused) return; // Stop the slide if paused
+    currentSlide = (currentSlide + 1) % slides.length;
     const slider = document.querySelector(".slider");
     slider.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
 
-setInterval(showNextSlide, 4000);
+// Store the interval in a variable so we can control it
+let slideInterval = setInterval(showNextSlide, 4000);
+
+// Pause/Play Logic
+const sliderBtn = document.getElementById('sliderControl');
+
+sliderBtn.addEventListener('click', () => {
+    isPaused = !isPaused; // Toggle the state
+    
+    if (isPaused) {
+        sliderBtn.innerText = "Play";
+        sliderBtn.setAttribute('aria-label', 'Play slideshow');
+    } else {
+        sliderBtn.innerText = "Pause";
+        sliderBtn.setAttribute('aria-label', 'Pause slideshow');
+    }
+});
 
 
 window.addEventListener("scroll", function () {

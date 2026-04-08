@@ -570,3 +570,30 @@ footer {
     background: #ff6900;
     cursor: pointer;
 }
+
+.slider-control {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.slider-control:hover, .slider-control:focus {
+    background: #ff6900;
+}
+
+/* MANDATORY FOR ACCESSIBILITY: Disable all motion if user has it turned off in Windows/iOS */
+@media (prefers-reduced-motion: reduce) {
+    .slider, .slide, .fade-in {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
