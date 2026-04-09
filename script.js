@@ -48,20 +48,37 @@ sliderBtn.addEventListener('click', () => {
 });
 
 
-window.addEventListener("scroll", function () {
-    const nav = document.querySelector("nav");
+// window.addEventListener("scroll", function () {
+//     const nav = document.querySelector("nav");
 
-    if (window.scrollY > 50) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
+//     if (window.scrollY > 50) {
+//         nav.classList.add("scrolled");
+//     } else {
+//         nav.classList.remove("scrolled");
+//     }
+// });
+
+let isScrolling = false;
+
+window.addEventListener("scroll", function () {
+    if (!isScrolling) {
+        window.requestAnimationFrame(function () {
+            const nav = document.querySelector("nav");
+            if (window.scrollY > 50) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+            isScrolling = false;
+        });
+        isScrolling = true;
     }
 });
 
 
 const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -80px 0px"
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
 };
 
 const appearOnScroll = new IntersectionObserver(function(entries, observer){
